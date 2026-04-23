@@ -1,0 +1,618 @@
+/* ============================================================
+   University HR Management System — Global Stylesheet
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ---- Custom Properties ---- */
+:root {
+    --emp-primary:        #2563EB;
+    --emp-primary-dark:   #1D4ED8;
+    --emp-primary-light:  #DBEAFE;
+
+    --admin-primary:      #7C3AED;
+    --admin-primary-dark: #6D28D9;
+    --admin-primary-light:#EDE9FE;
+
+    --hr-primary:         #0D9488;
+    --hr-primary-dark:    #0F766E;
+    --hr-primary-light:   #CCFBF1;
+
+    --danger:      #DC2626;
+    --danger-dark: #B91C1C;
+    --success:     #16A34A;
+    --warning:     #D97706;
+
+    --bg:          #F1F5F9;
+    --surface:     #FFFFFF;
+    --border:      #E2E8F0;
+    --text:        #0F172A;
+    --text-muted:  #64748B;
+    --text-light:  #94A3B8;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+    --shadow:    0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -1px rgba(0,0,0,.04);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -2px rgba(0,0,0,.04);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.10), 0 10px 10px -5px rgba(0,0,0,.04);
+
+    --radius-sm: 6px;
+    --radius:    10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --nav-height: 62px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ============================================================
+   Navigation Bar
+   ============================================================ */
+.nav-bar {
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.18);
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+
+.nav-emp   { background: linear-gradient(90deg, #1D4ED8, #2563EB); }
+.nav-admin { background: linear-gradient(90deg, #5B21B6, #7C3AED); }
+.nav-hr    { background: linear-gradient(90deg, #0F766E, #0D9488); }
+
+.nav-brand {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: white;
+    white-space: nowrap;
+    margin-right: 14px;
+    padding-right: 14px;
+    border-right: 1px solid rgba(255,255,255,.25);
+    letter-spacing: -.01em;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.nav-bar a {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255,255,255,.85);
+    padding: 6px 11px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all .15s;
+    white-space: nowrap;
+}
+.nav-bar a:hover { background: rgba(255,255,255,.16); color: white; }
+
+.nav-bar .logout-btn {
+    margin-left: auto;
+    flex-shrink: 0;
+    background: rgba(220,38,38,.80) !important;
+    color: white !important;
+    border: none;
+    padding: 7px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all .15s;
+    letter-spacing: .01em;
+}
+.nav-bar .logout-btn:hover { background: rgba(185,28,28,.95) !important; }
+
+/* ============================================================
+   Page Container
+   ============================================================ */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.page-header { margin-bottom: 28px; }
+.page-header h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+.page-header p  { color: var(--text-muted); font-size: 14px; }
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 28px;
+}
+.card + .card { margin-top: 20px; }
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ============================================================
+   Home / Landing Page
+   ============================================================ */
+.home-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    background: linear-gradient(135deg, #0A0F1E 0%, #0F172A 40%, #1E293B 100%);
+}
+
+.home-header { text-align: center; margin-bottom: 52px; }
+
+.home-logo {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 24px rgba(59,130,246,.4);
+}
+
+.site-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -.03em;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.site-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,.55);
+    font-weight: 400;
+}
+
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 860px;
+}
+
+.portal-option {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: var(--radius-lg);
+    padding: 36px 24px 28px;
+    text-align: center;
+    transition: all .2s ease;
+}
+.portal-option:hover {
+    background: rgba(255,255,255,.10);
+    border-color: rgba(255,255,255,.22);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,.4);
+}
+.portal-option .portal-icon { font-size: 2.75rem; margin-bottom: 14px; }
+.portal-option h3 { color: white; font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+.portal-option p  { color: rgba(255,255,255,.5); font-size: 13px; margin-bottom: 24px; line-height: 1.5; }
+
+/* ============================================================
+   Login Page
+   ============================================================ */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.login-page-emp   { background: linear-gradient(135deg, #0A0F1E 0%, #1E3A8A 100%); }
+.login-page-admin { background: linear-gradient(135deg, #0A0F1E 0%, #3B0764 100%); }
+.login-page-hr    { background: linear-gradient(135deg, #0A0F1E 0%, #042F2E 100%); }
+
+.login-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    padding: 48px 44px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-header { text-align: center; margin-bottom: 36px; }
+
+.login-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 30px;
+}
+.login-logo-emp   { background: linear-gradient(135deg, #DBEAFE, #BFDBFE); }
+.login-logo-admin { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); }
+.login-logo-hr    { background: linear-gradient(135deg, #CCFBF1, #99F6E4); }
+
+.login-header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+.login-header p  { font-size: 13.5px; color: var(--text-muted); }
+
+.login-back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color .15s;
+}
+.login-back:hover { color: var(--text); }
+
+/* ============================================================
+   Dashboard Welcome Banner
+   ============================================================ */
+.dash-welcome {
+    border-radius: var(--radius-lg);
+    padding: 32px 36px;
+    color: white;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+}
+.dash-welcome::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,.07);
+    border-radius: 50%;
+}
+.dash-welcome-emp   { background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 60%, #3B82F6 100%); }
+.dash-welcome-admin { background: linear-gradient(135deg, #5B21B6 0%, #7C3AED 60%, #8B5CF6 100%); }
+.dash-welcome-hr    { background: linear-gradient(135deg, #0F766E 0%, #0D9488 60%, #14B8A6 100%); }
+
+.dash-welcome h2 { color: white; font-size: 1.7rem; font-weight: 700; margin-bottom: 6px; }
+.dash-welcome p  { color: rgba(255,255,255,.75); font-size: 14.5px; }
+
+/* ============================================================
+   Action Card Grid (Dashboard)
+   ============================================================ */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.action-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 18px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: all .2s ease;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+}
+.action-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: #CBD5E1;
+    transform: translateY(-2px);
+    color: var(--text);
+    text-decoration: none;
+}
+
+.action-icon  { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+.action-title { font-size: 13.5px; font-weight: 600; color: var(--text); display: block; }
+.action-desc  { font-size: 12px; color: var(--text-muted); margin-top: 4px; display: block; }
+
+/* ASP.NET <input type="submit"> styled as action cards */
+input.action-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 18px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: all .2s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+    line-height: 1.5;
+    white-space: pre-line;
+}
+input.action-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: #CBD5E1;
+    transform: translateY(-2px);
+}
+
+/* Invisible ASP.NET buttons that act as action cards */
+.btn-action-hidden {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all .15s;
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: .01em;
+}
+.btn:focus { outline: none; box-shadow: 0 0 0 3px rgba(37,99,235,.25); }
+.btn-sm   { padding: 7px 14px; font-size: 13px; }
+.btn-lg   { padding: 12px 26px; font-size: 15px; font-weight: 600; }
+.btn-full { width: 100%; display: flex; }
+
+.btn-primary { background: var(--emp-primary);   color: white; }
+.btn-primary:hover { background: var(--emp-primary-dark); }
+
+.btn-admin   { background: var(--admin-primary);  color: white; }
+.btn-admin:hover { background: var(--admin-primary-dark); }
+
+.btn-hr      { background: var(--hr-primary);     color: white; }
+.btn-hr:hover { background: var(--hr-primary-dark); }
+
+.btn-success { background: var(--success);  color: white; }
+.btn-success:hover { background: #15803D; }
+
+.btn-danger  { background: var(--danger);   color: white; }
+.btn-danger:hover { background: var(--danger-dark); }
+
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+}
+.btn-outline:hover { background: var(--bg); }
+
+.btn-ghost { background: transparent; color: var(--text-muted); border-color: transparent; }
+.btn-ghost:hover { background: var(--bg); color: var(--text); }
+
+/* ============================================================
+   Form Styles
+   ============================================================ */
+.form-group { margin-bottom: 20px; }
+
+.form-label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: white;
+    transition: border-color .15s, box-shadow .15s;
+    outline: none;
+    line-height: 1.5;
+}
+.form-control:focus {
+    border-color: var(--emp-primary);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+.form-control::placeholder { color: var(--text-light); }
+
+.form-control-admin:focus {
+    border-color: var(--admin-primary);
+    box-shadow: 0 0 0 3px rgba(124,58,237,.12);
+}
+.form-control-hr:focus {
+    border-color: var(--hr-primary);
+    box-shadow: 0 0 0 3px rgba(13,148,136,.12);
+}
+
+select.form-control { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+
+textarea.form-control { resize: vertical; min-height: 100px; }
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* ============================================================
+   Alerts / Messages
+   ============================================================ */
+.alert {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: block;
+    width: 100%;
+}
+.alert-error   { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+.alert-success { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+.alert-info    { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; }
+.alert-warning { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
+
+/* Hide alert boxes when they have no content (empty ASP.NET Label spans) */
+.alert:empty { display: none !important; }
+
+.msg-error   { color: var(--danger);  font-size: 13.5px; font-weight: 500; }
+.msg-success { color: var(--success); font-size: 13.5px; font-weight: 500; }
+.msg-info    { color: #1E40AF;        font-size: 13.5px; font-weight: 500; }
+
+/* ============================================================
+   GridView Container
+   ============================================================ */
+.grid-wrap {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.grid-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.grid-wrap th {
+    background: #1E293B !important;
+    color: white !important;
+    padding: 13px 16px !important;
+    text-align: left !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    letter-spacing: .06em !important;
+    text-transform: uppercase !important;
+}
+.grid-wrap td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 14px;
+}
+.grid-wrap tr:last-child td { border-bottom: none; }
+.grid-wrap tr:hover td { background: #F8FAFC; }
+.grid-wrap tr:nth-child(even) td { background: #FAFAFA; }
+.grid-wrap tr:nth-child(even):hover td { background: #F1F5F9; }
+
+/* ============================================================
+   Section Headers
+   ============================================================ */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+.section-header h3 { margin: 0; font-size: 1rem; }
+
+.section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+.mt-2  { margin-top:  8px; }
+.mt-4  { margin-top:  16px; }
+.mt-6  { margin-top:  24px; }
+.mb-2  { margin-bottom:  8px; }
+.mb-4  { margin-bottom: 16px; }
+.mb-6  { margin-bottom: 24px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.d-flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.align-center { align-items: center; }
+.text-center { text-align: center; }
+.text-muted-sm { color: var(--text-muted); font-size: 13px; }
+.text-success { color: var(--success) !important; }
+.text-danger  { color: var(--danger)  !important; }
+.text-info    { color: #1E40AF        !important; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+    .portal-grid { grid-template-columns: 1fr; max-width: 400px; }
+}
+@media (max-width: 768px) {
+    .action-grid { grid-template-columns: repeat(2, 1fr); }
+    .login-card  { padding: 32px 24px; }
+    .page-container { padding: 20px 16px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .dash-welcome { padding: 24px; }
+    .site-title { font-size: 1.8rem; }
+}
+@media (max-width: 480px) {
+    .action-grid { grid-template-columns: 1fr; }
+}
