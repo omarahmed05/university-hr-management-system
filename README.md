@@ -75,6 +75,7 @@ A full-stack HR management web application built for the German University in Ca
 ---
 
 ## Project Structure
+```
 DatabaseProjV1/
 ├── WebApplications/
 │ └── DatabaseProject/
@@ -86,7 +87,7 @@ DatabaseProjV1/
 └── GUC_126_67_62304_.../
 ├── final_implementation.sql # Schema, stored procedures & functions
 └── SqlQuery_1.sql # Seed data
-
+```
 
 ---
 
